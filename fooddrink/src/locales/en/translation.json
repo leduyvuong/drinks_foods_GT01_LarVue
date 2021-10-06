@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "product_list": {
     "sort_by": "Sort by",
     "sort_by_rating": "Sort by rating",
@@ -6,5 +7,20 @@
     "sort_by_name_dec": "Name: Z - A",
     "sort_by_price_asc": "Price: Ascending",
     "sort_by_price_dec": "Price: Decending"
+=======
+  "login": {
+    "content": "Login",
+    "email": "Email Address",
+    "password": "Password",
+    "forget": "Forgotten pasward?"
+  },
+  "register": {
+    "content": "Register",
+    "full_name": "Full name",
+    "username": "Username",
+    "email": "Email Address",
+    "password": "Password",
+    "password_confirm": "Confirm Password"
+>>>>>>> view Login
   }
 }
