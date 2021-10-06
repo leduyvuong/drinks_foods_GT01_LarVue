@@ -1,9 +1,17 @@
-import "./index.scss"
+import "./index.scss";
 import image1 from "./image/product04.webp";
 import image2 from "./image/product05.webp";
 import image3 from "./image/product06.webp";
 import image4 from "./image/product07.webp";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
 function ProductDetail() {
+  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const [currentLang, setCurrentLang] = useState("en");
+  function SwitchLanguage(e: any) {
+    i18n.changeLanguage(e.target.value);
+  }
   return (
     <div>
       <div className="single-product-content ">
@@ -61,8 +69,8 @@ function ProductDetail() {
                     <i className="fa fa-star active" />
                     <i className="fa fa-star active" />
                     <i className="fa fa-star" />
-                    <a href="#">(1 customer review)</a>
-                  </p>
+                    <a href="#">(1 {t("product_detail.review")})</a>
+                  </p >
                   <h2 className="product-price mb-15">
                     <span className="discounted-price"> $10.00</span>
                   </h2>
@@ -78,15 +86,15 @@ function ProductDetail() {
                       <a href="" className="dec qty-btn">-</a>
                     </div>
                     <div className="add-to-cart-btn">
-                      <a href="#"><i className="fa fa-shopping-cart" /> Add to Cart</a>
-                    </div>
-                  </div>
+                      <a href="#"><i className="fa fa-shopping-cart" /> {t("product_detail.add_to_cart")}</a>
+                    </div >
+                  </div >
 
                   <div className="single-product-category mb-20">
-                    <h3>Categories: <span><a href="shop-left-sidebar.html">Fast Foods</a>, <a href="shop-left-sidebar.html">Vegetables</a></span></h3>
+                    <h3>{t("product_detail.categories")}: <span><a href="shop-left-sidebar.html">{t("product_detail.fast_food")}</a></span></h3>
                   </div>
                   <div className="social-share-buttons">
-                    <h3>share this product</h3>
+                    <h3>{t("product_detail.share")}</h3>
                     <ul>
                       <li><a className="twitter" href="#"><i className="fa fa-twitter" /></a></li>
                       <li><a className="facebook" href="#"><i className="fa fa-facebook" /></a></li>
@@ -94,14 +102,14 @@ function ProductDetail() {
                       <li><a className="pinterest" href="#"><i className="fa fa-pinterest" /></a></li>
                     </ul>
                   </div>
-                </div>
+                </div >
                 {/* end of product quick view description */}
-              </div>
-            </div>
-          </div>
+              </div >
+            </div >
+          </div >
           {/*=======  End of single product content container  =======*/}
-        </div>
-      </div>
+        </div >
+      </div >
       {/*=====  End of single product content  ======*/}
       {/*=============================================
   =            single product tab         =
@@ -113,11 +121,9 @@ function ProductDetail() {
               <div className="tab-slider-wrapper">
                 <nav>
                   <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a className="nav-item nav-link active" id="description-tab" data-bs-toggle="tab" href="#description" role="tab" aria-selected="true">Description</a>
-                    <a className="nav-item nav-link" id="features-tab" data-bs-toggle="tab" href="#features" role="tab" aria-selected="false">Features</a>
-                    <a className="nav-item nav-link" id="review-tab" data-bs-toggle="tab" href="#review" role="tab" aria-selected="false">Reviews (3)</a>
-                  </div>
-                </nav>
+                    <a className="nav-item nav-link active" id="description-tab" data-bs-toggle="tab" href="#description" role="tab" aria-selected="true">{t("product_detail.descrip")}</a>
+                  </div >
+                </nav >
                 <div className="tab-content" id="nav-tabContent">
                   <div className="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                     <p className="product-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
@@ -129,165 +135,13 @@ function ProductDetail() {
                       quia veritatis, quidem id repudiandae ex tempore non. Enim soluta explicabo atque
                       adipisci itaque.</p>
                   </div>
-                  <div className="tab-pane fade" id="features" role="tabpanel" aria-labelledby="features-tab">
-                    <table className="table-data-sheet">
-                      <tbody>
-                        <tr className="odd">
-                          <td>Name</td>
-                          <td>Kaoreet lobortis sagittis laoreet</td>
-                        </tr>
-                        <tr className="even">
-                          <td>Color</td>
-                          <td>Yellow</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div className="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                    <div className="product-ratting-wrap">
-                      <div className="pro-avg-ratting">
-                        <h4>4.5 <span>(Overall)</span></h4>
-                        <span>Based on 9 Comments</span>
-                      </div>
-                      <div className="ratting-list">
-                        <div className="sin-list float-start">
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <span>(5)</span>
-                        </div>
-                        <div className="sin-list float-start">
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star-o" />
-                          <span>(3)</span>
-                        </div>
-                        <div className="sin-list float-start">
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star-o" />
-                          <i className="fa fa-star-o" />
-                          <span>(1)</span>
-                        </div>
-                        <div className="sin-list float-start">
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star-o" />
-                          <i className="fa fa-star-o" />
-                          <i className="fa fa-star-o" />
-                          <span>(0)</span>
-                        </div>
-                        <div className="sin-list float-start">
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star-o" />
-                          <i className="fa fa-star-o" />
-                          <i className="fa fa-star-o" />
-                          <i className="fa fa-star-o" />
-                          <span>(0)</span>
-                        </div>
-                      </div>
-                      <div className="rattings-wrapper">
-                        <div className="sin-rattings">
-                          <div className="ratting-author">
-                            <h3>Cristopher Lee</h3>
-                            <div className="ratting-star">
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <span>(5)</span>
-                            </div>
-                          </div>
-                          <p>enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia res eos
-                            qui ratione voluptatem sequi Neque porro
-                            quisquam est, qui dolorem ipsum quia dolor sit
-                            amet, consectetur, adipisci veli</p>
-                        </div>
-                        <div className="sin-rattings">
-                          <div className="ratting-author">
-                            <h3>Nirob Khan</h3>
-                            <div className="ratting-star">
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <span>(5)</span>
-                            </div>
-                          </div>
-                          <p>enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia res eos
-                            qui ratione voluptatem sequi Neque porro
-                            quisquam est, qui dolorem ipsum quia dolor sit
-                            amet, consectetur, adipisci veli</p>
-                        </div>
-                        <div className="sin-rattings">
-                          <div className="ratting-author">
-                            <h3>MD.ZENAUL ISLAM</h3>
-                            <div className="ratting-star">
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <span>(5)</span>
-                            </div>
-                          </div>
-                          <p>enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia res eos
-                            qui ratione voluptatem sequi Neque porro
-                            quisquam est, qui dolorem ipsum quia dolor sit
-                            amet, consectetur, adipisci veli</p>
-                        </div>
-                      </div>
-                      <div className="ratting-form-wrapper fix">
-                        <h3>Add your Comments</h3>
-                        <form action="#">
-                          <div className="ratting-form row">
-                            <div className="col-12 mb-15">
-                              <h5>Rating:</h5>
-                              <div className="ratting-star fix">
-                                <i className="fa fa-star-o" />
-                                <i className="fa fa-star-o" />
-                                <i className="fa fa-star-o" />
-                                <i className="fa fa-star-o" />
-                                <i className="fa fa-star-o" />
-                              </div>
-                            </div>
-                            <div className="col-md-6 col-12 mb-15">
-                              <label htmlFor="name">Name:</label>
-                              <input id="name" placeholder="Name" type="text" />
-                            </div>
-                            <div className="col-md-6 col-12 mb-15">
-                              <label htmlFor="email">Email:</label>
-                              <input id="email" placeholder="Email" type="text" />
-                            </div>
-                            <div className="col-12 mb-15">
-                              <label htmlFor="your-review">Your Review:</label>
-                              <textarea name="review" id="your-review" placeholder="Write a review" defaultValue={""} />
-                            </div>
-                            <div className="col-12">
-                              <input defaultValue="add review" type="submit" />
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                </div >
+              </div >
+            </div >
+          </div >
+        </div >
+      </div >
+    </div >
   );
 }
 

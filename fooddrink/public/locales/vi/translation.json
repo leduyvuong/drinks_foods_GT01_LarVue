@@ -13,5 +13,27 @@
   "stayintouch": "Kết nối với chúng tôi",
   "freeship": "Miễn phí ship cho đơn hàng trên 200$",
   "moneyback": "30 ngày hoàn tiền",
-  "support": "Hỗ trợ 24/7"
+  "support": "Hỗ trợ 24/7",
+  "login": {
+    "content": "Đăng nhập",
+    "email": "Địa chỉ email",
+    "password": "Mật khẩu",
+    "forget": "Quên mật khẩu"
+  },
+  "register": {
+    "content": "Đăng ký",
+    "full_name": "Tên đầy đủ",
+    "username": "Username",
+    "email": "Địa chỉ email",
+    "password": "Mật khẩu",
+    "password_confirm": "Xác nhận mật khẩu"
+  },
+  "product_detail": {
+    "review": "người dùng đánh giá",
+    "add_to_cart": "Thêm vào giỏ hàng",
+    "categories": "Danh mục",
+    "fast_food": "Đồ ăn nhanh",
+    "share": "Chia sẻ sản phẩm",
+    "descrip": "Thông tin"
+  }
 }

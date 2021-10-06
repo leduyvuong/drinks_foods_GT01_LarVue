@@ -46,13 +46,8 @@ function Header(props: any) {
                 {t("categories")}
               </a>
             </li>
-            <li className="nav-item">
-              <a href="#!" className="nav-link waves-effect">
-                {t("signin")}
-              </a>
-            </li>
             <li className="nav-item pl-2 mb-2 mb-md-0">
-              <a href="#!" type="button" className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"> {t("signup")}</a>
+              <a href="#!" type="button" className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">{t("signin")} / {t("signup")}</a>
             </li>
             <li className="nav-item pl-2">
               <select className="custom-select" onChange={SwitchLanguage}>

@@ -13,5 +13,26 @@
   "stayintouch": "Stay in Touch",
   "freeship": "FREE SHIPPING ON ORDERS OVER $200",
   "moneyback": "30 -DAY RETURNS MONEY BACK",
-  "support": "24/7 SUPPORT"
+  "support": "24/7 SUPPORT",
+  "login": {
+    "content": "Login",
+    "email": "Email Address",
+    "password": "Password",
+    "forget": "Forgotten pasward?"
+  },
+  "register": {
+    "content": "Register",
+    "full_name": "Full name",
+    "username": "Username",
+    "email": "Email Address",
+    "password": "Password",
+    "password_confirm": "Confirm Password"
+  },
+  "product_detail": {
+    "review": "customer review",
+    "add_to_cart": "Add to cart",
+    "categories": "Categories",
+    "share": "Share this product",
+    "descrip": "Description"
+  }
 }
