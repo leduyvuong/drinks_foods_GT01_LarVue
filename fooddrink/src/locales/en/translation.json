@@ -6,5 +6,25 @@
     "sort_by_name_dec": "Name: Z - A",
     "sort_by_price_asc": "Price: Ascending",
     "sort_by_price_dec": "Price: Decending"
+  },
+  "checkout": {
+    "bill_address": "Billing Address",
+    "full_name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone",
+    "address": "Address",
+    "country": "Country",
+    "town/city": "Town/City",
+    "create_account": "Create an Acount?",
+    "cart_total": "Cart Total",
+    "product": "Product",
+    "total": "Total",
+    "sub_total": "Sub Total",
+    "ship": "Shipping Fee",
+    "grand_total": "Grand Total",
+    "payment": "Payment method",
+    "payment_on_delivery": "Payment on delivery",
+    "payment_on_paypal": "Paypal",
+    "place_order": "Place order"
   }
 }

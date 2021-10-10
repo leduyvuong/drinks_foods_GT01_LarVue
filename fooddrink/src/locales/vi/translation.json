@@ -6,5 +6,25 @@
     "sort_by_name_dec": "Tên: Z - A",
     "sort_by_price_asc": "Giá: Tăng dần",
     "sort_by_price_dec": "Giá: Giảm dần"
+  },
+  "checkout": {
+    "bill_address": "Địa chỉ thanh toán",
+    "full_name": "Họ và tên",
+    "email": "Địa chỉ email",
+    "phone": "Điện thoại",
+    "address": "Địa chỉ nhà",
+    "country": "Quốc gia",
+    "town/city": "Thị trấn / Thành phố",
+    "create_account": "Tạo tài khoản?",
+    "cart_total": "Tổng số giỏ hàng",
+    "product": "Sản phẩm",
+    "total": "Tổng cộng",
+    "sub_total": "Tạm tính",
+    "ship": "Phí vận chuyển",
+    "grand_total": "Tổng cộng",
+    "payment": "Phương thức thanh toán",
+    "payment_on_delivery": "Thanh toán khi nhận hàng",
+    "payment_on_paypal": "Paypal",
+    "place_order": "Đặt hàng"
   }
 }
