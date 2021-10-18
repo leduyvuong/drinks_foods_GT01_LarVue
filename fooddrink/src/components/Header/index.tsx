@@ -39,7 +39,7 @@ function Header(props: any) {
               </a>
             </li>
             <li className="nav-item">
-              <a href="#!" className="nav-link waves-effect">{t("home")}</a>
+              <a href="/" className="nav-link waves-effect">{t("home")}</a>
             </li>
             <li className="nav-item">
               <a href="#!" className="nav-link waves-effect">
@@ -47,7 +47,7 @@ function Header(props: any) {
               </a>
             </li>
             <li className="nav-item pl-2 mb-2 mb-md-0">
-              <a href="#!" type="button" className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">{t("signin")} / {t("signup")}</a>
+              <a href="/login" type="button" className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">{t("signin")} / {t("signup")}</a>
             </li>
             <li className="nav-item pl-2">
               <select className="custom-select" onChange={SwitchLanguage}>

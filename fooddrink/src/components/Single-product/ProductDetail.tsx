@@ -4,14 +4,35 @@ import image2 from "./image/product05.webp";
 import image3 from "./image/product06.webp";
 import image4 from "./image/product07.webp";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-function ProductDetail() {
-  const { t } = useTranslation();
-  const { i18n } = useTranslation();
-  const [currentLang, setCurrentLang] = useState("en");
-  function SwitchLanguage(e: any) {
-    i18n.changeLanguage(e.target.value);
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import axios from "axios";
+
+interface ParamTypes {
+  id: string
+}
+
+const ProductDetail: React.FC = () => {
+  const productInit = {
+    product_name: "",
+    price: "",
+    category_id: "",
+    description: ""
   }
+  const { t } = useTranslation();
+  const [product, setProduct] = useState(productInit);
+  const { id } = useParams<ParamTypes>();
+  useEffect(() => {
+    const requestUrl = "/api/v1/products/" + id;
+    async function fetchProduct() {
+      await axios.get(requestUrl)
+        .then(res => {
+          setProduct(res.data);
+          console.log(res.data);
+        })
+    }
+    fetchProduct();
+  }, [])
   return (
     <div>
       <div className="single-product-content ">
@@ -62,7 +83,7 @@ function ProductDetail() {
               <div className="col-lg-6 col-md-12 col-xs-12">
                 {/* product quick view description */}
                 <div className="product-feature-details">
-                  <h2 className="product-title mb-15">Kaoreet lobortis sagittis laoreet</h2>
+                  <h2 className="product-title mb-15">{product.product_name}</h2>
                   <p className="product-rating">
                     <i className="fa fa-star active" />
                     <i className="fa fa-star active" />
@@ -72,12 +93,9 @@ function ProductDetail() {
                     <a href="#">(1 {t("product_detail.review")})</a>
                   </p >
                   <h2 className="product-price mb-15">
-                    <span className="discounted-price"> $10.00</span>
+                    <span className="discounted-price"> {product.price}</span>
                   </h2>
-                  <p className="product-description mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis
-                    vulputate, tristique ut lectus</p>
+                  <p className="product-description mb-20">{product.description}</p>
 
                   <div className="cart-buttons mb-20">
                     <div className="pro-qty mr-20 mb-xs-20">
@@ -91,7 +109,7 @@ function ProductDetail() {
                   </div >
 
                   <div className="single-product-category mb-20">
-                    <h3>{t("product_detail.categories")}: <span><a href="shop-left-sidebar.html">{t("product_detail.fast_food")}</a></span></h3>
+                    <h3>{t("product_detail.categories")}: <span><a href="shop-left-sidebar.html">{product.category_id == "1" ? t("food") : t("drink")}</a></span></h3>
                   </div>
                   <div className="social-share-buttons">
                     <h3>{t("product_detail.share")}</h3>
@@ -108,37 +126,6 @@ function ProductDetail() {
             </div >
           </div >
           {/*=======  End of single product content container  =======*/}
-        </div >
-      </div >
-      {/*=====  End of single product content  ======*/}
-      {/*=============================================
-  =            single product tab         =
-  =============================================*/}
-      <div className="single-product-tab-section mb-35">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="tab-slider-wrapper">
-                <nav>
-                  <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a className="nav-item nav-link active" id="description-tab" data-bs-toggle="tab" href="#description" role="tab" aria-selected="true">{t("product_detail.descrip")}</a>
-                  </div >
-                </nav >
-                <div className="tab-content" id="nav-tabContent">
-                  <div className="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                    <p className="product-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-                      obcaecati tempore reiciendis neque facere! Eos, necessitatibus? Fugit iure veritatis
-                      quidem velit quaerat quos qui pariatur dolore facilis, aliquid quae voluptatibus
-                      dicta. Quae harum velit hic molestias, eius ab cum quidem voluptates modi maiores
-                      laboriosam iusto excepturi ex, recusandae aut, facere earum ad vero aperiam. Minima
-                      dolores dignissimos ab ipsam atque placeat sapiente officia debitis nobis porro at
-                      quia veritatis, quidem id repudiandae ex tempore non. Enim soluta explicabo atque
-                      adipisci itaque.</p>
-                  </div>
-                </div >
-              </div >
-            </div >
-          </div >
         </div >
       </div >
     </div >

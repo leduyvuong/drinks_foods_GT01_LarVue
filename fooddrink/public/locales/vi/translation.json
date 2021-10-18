@@ -35,5 +35,13 @@
     "fast_food": "Đồ ăn nhanh",
     "share": "Chia sẻ sản phẩm",
     "descrip": "Thông tin"
+  },
+  "product_list": {
+    "sort_by": "Sắp xếp theo",
+    "sort_by_rating": "Sao",
+    "sort_by_name_asc": "Tên: A - Z",
+    "sort_by_name_dec": "Tên: Z - A",
+    "sort_by_price_asc": "Giá: Tăng dần",
+    "sort_by_price_dec": "Giá: Giảm dần"
   }
 }

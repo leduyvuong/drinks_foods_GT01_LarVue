@@ -7,10 +7,10 @@
 /*----------  Sidebar search box  ----------*/
 .sidebar-area {
   .sidebar {
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 30px 20px;
-    -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.1);
     position: relative;
     h3.sidebar-title {
       font-size: 18px;
@@ -154,7 +154,7 @@
           }
           span.main-price {
             text-decoration: line-through;
-            color: #999999;
+            color: #9999;
           }
         }
         .image {
@@ -230,7 +230,7 @@
   #price-amount {
     font-size: 14px;
     font-weight: 500;
-    color: #666666;
+    color: #666;
     line-height: 24px;
     padding: 0;
     background-color: transparent;
@@ -293,7 +293,7 @@
       span {
         font-size: 14px;
         line-height: 20px;
-        color: #666666;
+        color: #666;
       }
       a {
         font-size: 12px;
@@ -340,7 +340,7 @@
 /*----------  list product icons  ----------*/
 .shop-list-view-product {
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -394,7 +394,7 @@
     p.product-description {
       font-size: 15px;
       line-height: 30px;
-      color: #666666;
+      color: #666;
     }
   }
 }
@@ -443,7 +443,7 @@
       font-size: 14px;
       font-weight: 400;
       background-color: #444444;
-      color: #ffffff;
+      color: #fff;
       line-height: 16px;
       padding: 5px 10px;
       border-radius: 2px;
@@ -547,12 +547,12 @@
     }
     &:hover {
       background-color: #80bb01;
-      color: #ffffff;
+      color: #fff;
     }
   }
   a.active {
     background-color: #80bb01;
-    color: #ffffff;
+    color: #fff;
   }
 }
 .sort-by-dropdown {
@@ -636,7 +636,7 @@ p.result-show-message {
       font-size: 14px;
       font-weight: 400;
       background-color: #444444;
-      color: #ffffff;
+      color: #fff;
       line-height: 16px;
       padding: 5px 10px;
       border-radius: 2px;
@@ -707,9 +707,9 @@ p.result-show-message {
 /*----------  section big title  ----------*/
 /*----------  nice select style  ----------*/
 .pagination-container {
-  background-color: #ffffff;
-  -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  -webkit-box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 15px 15px;
 }
 .pagination-content {
@@ -720,16 +720,16 @@ p.result-show-message {
       width: 30px;
       line-height: 30px;
       border-radius: 3px;
-      a {
-        background-color: #666666;
+      button {
+        background-color: #666;
         border-radius: 3px;
-        color: #ffffff;
+        color: #fff;
         display: block;
         &:hover {
           background-color: #80bb01;
         }
       }
-      a.active {
+      button.active {
         background-color: #80bb01;
       }
     }
@@ -785,7 +785,7 @@ p.result-show-message {
   padding: 30px 5px;
   text-align: center;
   position: relative;
-  background-color: #ffffff;
+  background-color: #fff;
   .image {
     margin-bottom: 20px;
     a {
