@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 2021_10_05_075426) do
     t.decimal "total_money", precision: 10
     t.bigint "user_id", null: false
     t.integer "status"
+    t.text "address"
+    t.string "phone"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"

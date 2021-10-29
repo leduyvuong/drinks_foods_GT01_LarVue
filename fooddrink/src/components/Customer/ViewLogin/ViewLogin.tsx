@@ -10,6 +10,12 @@ const ViewLogin: React.FC = () => {
     password: ""
   })
 
+  let currentUser = ({
+    token: "",
+    username: "",
+    role: ""
+  })
+
   const [userNew, setUserNew] = useState({
     username: "",
     full_name: "",
@@ -20,10 +26,8 @@ const ViewLogin: React.FC = () => {
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-
     const requestUrl = "/api/v1/login"
     if (!user.username || !user.password) return;
-    console.log(user);
     const qs = require("qs");
     axios.post(requestUrl, qs.stringify(
       {
@@ -35,8 +39,11 @@ const ViewLogin: React.FC = () => {
     ))
       .then(res => {
         if (res.data.login) {
-          localStorage.setItem("user", res.data.user.username);
-          window.location.href = "/new";
+          currentUser.token = res.data.token;
+          currentUser.username = res.data.user.username;
+          currentUser.role = res.data.user.role;
+          localStorage.setItem("user", JSON.stringify(currentUser));
+          window.location.href = "/";
         } else {
           let errors = document.getElementById("errors") as HTMLElement;
           errors.innerHTML = "Password or username wrong";
@@ -69,7 +76,7 @@ const ViewLogin: React.FC = () => {
       .then(res => {
         if (res.data.login) {
           localStorage.setItem("user", res.data.user.username);
-          window.location.href = "/new";
+          window.location.href = "/";
         } else {
           let errors: any[] = res.data;
           let err = document.getElementById("errorNew") as HTMLElement;
@@ -122,7 +129,7 @@ const ViewLogin: React.FC = () => {
                   <div className="col-md-8">
                   </div>
                   <div className="col-md-4 mt-10 mb-20 text-start text-md-end">
-                    <a className="forget" href="#"> {t("login.forget")}</a>
+                    <a className="forget" href="/#"> {t("login.forget")}</a>
                   </div>
                   <div className="col-md-12">
                     <button className="register-button mt-0">{t("login.content")}</button>

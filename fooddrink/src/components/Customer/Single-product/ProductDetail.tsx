@@ -13,15 +13,19 @@ interface ParamTypes {
 }
 
 const ProductDetail: React.FC = () => {
+
   const productInit = {
+    id: "",
     product_name: "",
     price: "",
     category_id: "",
     description: ""
   }
+
   const { t } = useTranslation();
   const [product, setProduct] = useState(productInit);
   const { id } = useParams<ParamTypes>();
+
   useEffect(() => {
     const requestUrl = "/api/v1/products/" + id;
     async function fetchProduct() {
@@ -33,9 +37,49 @@ const ProductDetail: React.FC = () => {
     }
     fetchProduct();
   }, [])
+
+  function incQuantity() {
+    let quantity = document.getElementById("quantity") as HTMLInputElement;
+    quantity.value = (parseInt(quantity.value) + 1).toString();
+  }
+
+  function decQuantity() {
+    let quantity = document.getElementById("quantity") as HTMLInputElement;
+    if (parseInt(quantity.value) > 1)
+      quantity.value = (parseInt(quantity.value) - 1).toString();
+  }
+
+  function addCart() {
+    let quantity = document.getElementById("quantity") as HTMLInputElement;
+    const prd = {
+      product_id: product.id,
+      product_name: product.product_name,
+      price: product.price,
+      quantity: parseInt(quantity.value),
+    };
+    if (localStorage.getItem("cart")) {
+      let check = 0;
+      let carts = JSON.parse(localStorage.getItem("cart") || "[]");
+      for (let i = 0; i < carts.length; i++) {
+        if (carts[i].product_id === prd.product_id) {
+          carts[i].quantity += prd.quantity;
+          check = 1;
+        }
+      }
+      if (check === 0) {
+        carts.push(prd);
+      }
+      localStorage.setItem("cart", JSON.stringify(carts));
+    } else {
+      let carts: any[] = [];
+      carts.push(prd)
+      localStorage.setItem("cart", JSON.stringify(carts));
+    }
+    console.log(localStorage.getItem("cart"));
+  }
   return (
     <div>
-      <div className="single-product-content ">
+      <div className="single-product-content " key={product.id}>
         <div className="container">
           {/*=======  single product content container  =======*/}
           <div className="single-product-content-container mb-35">
@@ -90,7 +134,7 @@ const ProductDetail: React.FC = () => {
                     <i className="fa fa-star active" />
                     <i className="fa fa-star active" />
                     <i className="fa fa-star" />
-                    <a href="#">(1 {t("product_detail.review")})</a>
+                    <a href="/#">(1 {t("product_detail.review")})</a>
                   </p >
                   <h2 className="product-price mb-15">
                     <span className="discounted-price"> {product.price}</span>
@@ -99,12 +143,12 @@ const ProductDetail: React.FC = () => {
 
                   <div className="cart-buttons mb-20">
                     <div className="pro-qty mr-20 mb-xs-20">
-                      <input type="text" defaultValue={1} />
-                      <a href="" className="inc qty-btn">+</a>
-                      <a href="" className="dec qty-btn">-</a>
+                      <input id="quantity" type="number" defaultValue={1} />
+                      <a onClick={() => incQuantity()} className="inc qty-btn">+</a>
+                      <a onClick={() => decQuantity()} className="dec qty-btn">-</a>
                     </div>
                     <div className="add-to-cart-btn">
-                      <a href="#"><i className="fa fa-shopping-cart" /> {t("product_detail.add_to_cart")}</a>
+                      <a onClick={() => addCart()}><i className="fa fa-shopping-cart" /> {t("product_detail.add_to_cart")}</a>
                     </div >
                   </div >
 
@@ -114,10 +158,10 @@ const ProductDetail: React.FC = () => {
                   <div className="social-share-buttons">
                     <h3>{t("product_detail.share")}</h3>
                     <ul>
-                      <li><a className="twitter" href="#"><i className="fa fa-twitter" /></a></li>
-                      <li><a className="facebook" href="#"><i className="fa fa-facebook" /></a></li>
-                      <li><a className="google-plus" href="#"><i className="fa fa-google-plus" /></a></li>
-                      <li><a className="pinterest" href="#"><i className="fa fa-pinterest" /></a></li>
+                      <li><a className="twitter" href="/#"><i className="fa fa-twitter" /></a></li>
+                      <li><a className="facebook" href="/#"><i className="fa fa-facebook" /></a></li>
+                      <li><a className="google-plus" href="/#"><i className="fa fa-google-plus" /></a></li>
+                      <li><a className="pinterest" href="/#"><i className="fa fa-pinterest" /></a></li>
                     </ul>
                   </div>
                 </div >

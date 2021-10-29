@@ -4,7 +4,10 @@ Rails.application.routes.draw do
       resources :users
       resources :categories
       resources :products
-      post "/login",        to: "sessions#create"
+      resources :orders
+      resources :user_profiles
+      post "/login",      to: "sessions#create"
+      get "/login",       to: "sessions#token_authenticate"
     end
   end
 end

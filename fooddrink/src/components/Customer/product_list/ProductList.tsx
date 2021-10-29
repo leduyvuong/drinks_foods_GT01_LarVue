@@ -1,33 +1,37 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import queryString from "query-string"
 import "./ProductList.scss";
 import banner from "./shop-banner.webp";
 import img from "./product06.webp";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import Pagination from "../share/Pagination";
+import Pagination from "../../share/Pagination";
 
 const ProductList: React.FC = () => {
   const { t } = useTranslation();
-  const [products, setProducts] = useState([] as any[]);
-  const [totalProduct, setTotalProduct] = useState(Number);
+  const [products, setProducts] = useState({
+    lists: [] as any[],
+    totalProducts: 0
+  });
   const [filters, setFilters] = useState({
     page: 1,
-    filter: ""
+    filter: "sort_name_asc"
   })
+
+
+
   useEffect(() => {
-    const filterString = queryString.stringify(filters);
-    const requestUrl = `/api/v1/products?${filterString}`
     async function fetchCategories() {
+      const filterString = queryString.stringify(filters);
+      const requestUrl = `/api/v1/products?${filterString}`
       await axios.get(requestUrl)
         .then(res => {
           let resJson = JSON.parse(JSON.stringify(res.data));
-          setTotalProduct(resJson.totalProducts);
-          setProducts(resJson.lists);
+          setProducts(resJson);
         });
     }
     fetchCategories();
+    console.log(products);
   }, [filters])
 
   function sortFilter() {
@@ -78,7 +82,7 @@ const ProductList: React.FC = () => {
                     </select>
                   </div>
                   {/*=======  End of Sort by dropdown  =======*/}
-                  <p className="result-show-message">Showing 1–8 of {totalProduct} results</p>
+                  <p className="result-show-message">Showing 1–{products.lists.length} of {products.totalProducts} results</p>
                 </div>
               </div>
             </div>
@@ -86,7 +90,7 @@ const ProductList: React.FC = () => {
             {/*=======  Grid list view  =======*/}
             <div className="shop-product-wrap list row no-gutters mb-35">
               {
-                products.map(prd => (
+                products.lists.map(prd => (
                   < div key={prd.id} className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
                     {/*=======  Grid view product  =======*/}
                     <div className="gf-product shop-grid-view-product">
@@ -112,17 +116,14 @@ const ProductList: React.FC = () => {
                     </div>
                     {/*=======  End of Grid view product  =======*/}
                     {/*=======  Shop list view product  =======*/}
-
                     {/*=======  End of Shop list view product  =======*/}
                   </div>
                 ))
-
               }
-
             </div>
             {/*=======  End of Grid list view  =======*/}
             {/*=======  Pagination container  =======*/}
-            <Pagination total={totalProduct} handleClickPage={handleClickPage} />
+            <Pagination total={products.totalProducts} handleClickPage={handleClickPage} limit={8} />
             {/*=======  End of Pagination container  =======*/}
           </div>
         </div>

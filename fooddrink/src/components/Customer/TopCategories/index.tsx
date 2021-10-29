@@ -1,7 +1,5 @@
-import React, { useState } from "react";
 import "./index.scss";
 import category1 from "./images/category1.webp";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 function TopCategories(props: any) {
   const { t } = useTranslation();

@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
 import "./index.scss";
 import slider1 from "./images/slider1.webp";
 import slider2 from "./images/slider2.webp";
@@ -8,20 +6,31 @@ import icon2 from "./images/icon2.webp";
 import icon3 from "./images/icon3.webp";
 import fooddrink from "./images/fooddrink.jpg";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
 
 function Header(props: any) {
   const { t } = useTranslation();
   const { i18n } = useTranslation();
-  const [currentLang, setCurrentLang] = useState("en");
   function SwitchLanguage(e: any) {
     i18n.changeLanguage(e.target.value);
   }
+
+  function logout() {
+    localStorage.removeItem("user");
+    window.location.href = "/";
+  }
+
+  const [totalCart, setTotalCart] = useState(0);
+
+  useEffect(() => {
+    setTotalCart(JSON.parse(localStorage.getItem("cart") || "[]").length);
+  }, [localStorage.getItem("cart")])
   return (
     <div>
       {/* Navbar */}
       <nav className="navbar navbar-expand-md navbar-light bg-white">
-        <a className="navbar-brand" href="#!">
+        <a className="navbar-brand" href="/">
           <img src={fooddrink} height={50} alt="mdb logo" />
         </a>
         {/* Collapse button */}
@@ -33,8 +42,8 @@ function Header(props: any) {
           {/* Right */}
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a href="#!" className="nav-link navbar-link-2 waves-effect">
-                <span className="badge badge-pill red">1</span>
+              <a href="/cart" className="nav-link navbar-link-2 waves-effect">
+                <span className="badge badge-pill red">{totalCart}</span>
                 <i className="fas fa-shopping-cart pl-0" />
               </a>
             </li>
@@ -42,17 +51,22 @@ function Header(props: any) {
               <a href="/" className="nav-link waves-effect">{t("home")}</a>
             </li>
             <li className="nav-item">
-              <a href="#!" className="nav-link waves-effect">
+              <a href="/products" className="nav-link waves-effect">
                 {t("categories")}
               </a>
             </li>
             <li className="nav-item pl-2 mb-2 mb-md-0">
-              <a href="/login" type="button" className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">{t("signin")} / {t("signup")}</a>
+              {
+                localStorage.getItem("user") == null ?
+                  <a href="/login" type="button" className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">{t("signin")} / {t("signup")}</a>
+                  : <a type="button" onClick={() => logout()} className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">{t("logout")}</a>
+              }
+
             </li>
             <li className="nav-item pl-2">
               <select className="custom-select" onChange={SwitchLanguage}>
-                <option value="en">En</option>
                 <option value="vi">Vi</option>
+                <option value="en">En</option>
               </select>
             </li>
           </ul>

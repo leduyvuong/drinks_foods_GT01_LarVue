@@ -3,6 +3,7 @@
   "categories": "Categories",
   "signin": "Sign in",
   "signup": "Sign up",
+  "logout": "Log out",
   "top-categories": "Top categories",
   "drink": "Drink",
   "food": "Food",
@@ -42,5 +43,50 @@
     "sort_by_name_dec": "Name: Z - A",
     "sort_by_price_asc": "Price: Ascending",
     "sort_by_price_dec": "Price: Decending"
+  },
+  "checkout": {
+    "bill_address": "Billing Address",
+    "full_name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone",
+    "address": "Address",
+    "country": "Country",
+    "town/city": "Town/City",
+    "create_account": "Create an Acount?",
+    "cart_total": "Cart Total",
+    "product": "Product",
+    "total": "Total",
+    "sub_total": "Sub Total",
+    "ship": "Shipping Fee",
+    "grand_total": "Grand Total",
+    "payment": "Payment method",
+    "payment_on_delivery": "Payment on delivery",
+    "payment_on_paypal": "Paypal",
+    "place_order": "Place order"
+  },
+  "sidebar": {
+    "user": "User Management",
+    "addUser": "New User",
+    "userList": "User List",
+    "product": "Product Management",
+    "addProduct": "New Product",
+    "productList": "Product List",
+    "order": "Order Management",
+    "orderList": "Order List",
+    "pendingOrder": "Pending Order"
+  },
+  "useradmin": {
+    "username": "Username",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status",
+    "action": "Action",
+    "admin": "Admin",
+    "customer": "Customer"
+  },
+  "log": {
+    "show": "Show",
+    "result": "results",
+    "of": "of"
   }
 }

@@ -52,6 +52,7 @@
       text-decoration: none;
       border-left: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
+      cursor: pointer;
     }
 
     a.dec {
@@ -60,6 +61,7 @@
       right: 0;
       border-left: 1px solid #ddd;
       padding-top: 2px;
+      cursor: pointer;
     }
   }
 
@@ -88,6 +90,7 @@
         background: #80bb01;
         border-color: #80bb01;
         color: #fff;
+        cursor: pointer;
       }
     }
   }

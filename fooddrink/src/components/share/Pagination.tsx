@@ -1,14 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 interface PaginationProps {
   total: number,
-  handleClickPage: (page: number) => void
+  handleClickPage: (page: number) => void,
+  limit: number
 };
 
 const Pagination: React.FC<PaginationProps> = props => {
   const total = props.total;
-  let totalProducts = total / 8 == 0 ? total / 8 : total / 8 + 1;
+  let totalProducts = 0;
+  if (total > props.limit)
+    totalProducts = total % props.limit === 0 ? total / props.limit : total / props.limit + 1;
   let paginationList = [] as any[];
   for (let i = 1; i <= totalProducts; i++) {
     paginationList.push(i);

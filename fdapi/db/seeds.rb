@@ -1,18 +1,27 @@
-@user = User.create!(username: "admin",
+@admin = User.create!(username: "admin",
   email: "firesoul0608@gmail.com",
   password: "123456",
   password_confirmation: "123456",
   status: 1,
   role: 0)
+@admin.create_user_profile(name: "Le Duy Vuong")
+@user = User.create!(username: "khachvanglai",
+  email: "khachvanglai@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
+  status: 1,
+  role: 0)
+@user.create_user_profile(name: "Khach vang lai")
 30.times do |n|
-name = Faker::Name.name
-email = "fooddrink-#{n+1}@gmail.com"
-@user = User.create!(username: name,
+  name = Faker::Name.name
+  email = "fooddrink-#{n+1}@gmail.com"
+  @user = User.create!(username: name,
     email: email,
     password: "123456",
     password_confirmation: "123456",
     status: 1,
     role: 1)
+    @user.create_user_profile(name: @user.username)
 end
 
 Category.create!(category_name: "Food")

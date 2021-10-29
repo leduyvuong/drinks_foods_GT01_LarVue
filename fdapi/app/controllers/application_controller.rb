@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::API
+
+  before_action :set_locale
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+  
   def secret_key
     "fooddrink"
   end
@@ -8,6 +14,10 @@ class ApplicationController < ActionController::API
   end
 
   def decode(token)
-    JWT.decode(token, "anything", true, {algorithm: "HS256"})[0]
+    begin
+      JWT.decode(token, "fooddrink", true, {algorithm: "HS256"})[0]
+    rescue
+      "error"
+    end
   end
 end
